@@ -3,6 +3,7 @@ package br.fepi.socialbooks.resources;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -33,6 +34,7 @@ public class LivrosResources {
 		return livrosRepository.save(livro);
 	}
 
+	@CrossOrigin
 	@GetMapping(value = "/{id}")
 	public Livro findById(@PathVariable (value = "id")Long id){
 		return livrosRepository.findById(id).orElse(null);

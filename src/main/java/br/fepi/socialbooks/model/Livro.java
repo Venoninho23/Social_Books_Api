@@ -7,7 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Transient;
+import javax.persistence.OneToMany;
+
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
@@ -19,7 +20,6 @@ public class Livro {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@JsonInclude(Include.NON_NULL)
 	private Long id;
-	
 	
 	@JsonInclude(Include.NON_NULL)
 	private String nome;
@@ -37,7 +37,7 @@ public class Livro {
 	private Date publicacao;
 	
 	@JsonInclude(Include.NON_NULL)
-	@Transient
+	@OneToMany(mappedBy = "livro")
 	private List<Comentario> comentarios;
 
 	public Long getId() {
