@@ -96,7 +96,4 @@ public class Livro {
 		this.editora = editora;
 	}
 
-	public Livro(String nome) {
-		this.nome = nome;
-	}
 }
